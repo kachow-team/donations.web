@@ -1,0 +1,29 @@
+.Header__content {
+    padding-top: 8px !important;
+}
+.Header__subtitle {
+    align-self: baseline;
+    display: flex;
+}
+.Subhead {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height, or 123% */
+    letter-spacing: -0.078px;
+    align-self: baseline;
+    display: flex;
+    color: #000000;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.Sum {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.InfoRow {
+    width: 73.3%;
+    padding-right: 12px;
+}

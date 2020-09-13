@@ -52,7 +52,7 @@ class DonationSnippet extends React.Component {
                             <InfoRow header="Собрано в сентябре 8500₽">
                                 <Progress value={40}/>
                             </InfoRow>
-                                <Button mode="outline">Помочь</Button>
+                                <Button onClick={this.props.go} data-to={'donationpostread'} mode="outline">Помочь</Button>
                         </Div>
                     </Group>
 

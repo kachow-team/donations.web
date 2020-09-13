@@ -10,6 +10,7 @@ import CreateHelpHome from "./panels/CreateHelpHome";
 import DonationTypePage from "./panels/DonationTypePage";
 import RegularDonation from "./panels/RegularDonation";
 import DonationSnippet from "./panels/DonationSnippet";
+import DonationPostRead from "./panels/DonationPostRead";
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('createhelphome');
@@ -44,6 +45,7 @@ const App = () => {
 			<DonationTypePage id='donationtype' go={go} />
 			<RegularDonation id='regulardonation' go={go} setDonation={setDonation}/>
             <DonationSnippet id='donationsnippet' go={go} donation={donation} setDonation={setDonation}/>
+            <DonationPostRead id='donationpostread' go={go} donation={donation} setDonation={setDonation} />
 			<Home id='home' fetchedUser={fetchedUser} go={go} />
 			<Persik id='persik' go={go} />
 		</View>
