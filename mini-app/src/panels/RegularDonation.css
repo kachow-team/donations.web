@@ -1,0 +1,4 @@
+.FormLayout__row:nth-of-type(2){
+    display: none;
+    padding: 0;
+}

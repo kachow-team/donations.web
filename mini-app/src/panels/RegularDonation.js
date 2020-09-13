@@ -18,6 +18,10 @@ import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton
 import {IOS, platform} from "@vkontakte/vkui";
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
 import Icon24Back from "@vkontakte/icons/dist/24/back";
+import './RegularDonation.css'
+
+import uploadPlaceHolder from '../img/uploadPlaceholder.svg';
+
 const osName = platform();
 
 class RegularDonation extends React.Component {
@@ -43,6 +47,12 @@ class RegularDonation extends React.Component {
         this.setState({ [name]: value });
     }
 
+    fileRef = React.createRef();
+
+    triggerClick() {
+        this.fileRef.current.click()
+    }
+
     render() {
         const { email, purpose } = this.state;
 
@@ -56,6 +66,13 @@ class RegularDonation extends React.Component {
                         Регулярный сбор
                     </PanelHeader>
                     <FormLayout>
+                        <div onClick={() => this.triggerClick()} style={{
+                            backgroundImage: `url(${uploadPlaceHolder})`,
+                            width:"375px",
+                            height:"153px"
+                        }} />
+
+                        <input id='selectImage' hidden type="file" ref={this.fileRef} style={{padding:0}} />
 
                         <Input top="Название сбора" placeholder={"Название сбора"} />
                         <Input top="Сумма в месяц, ₽" placeholder={"Сколько нужно в месяц?"} type={'number'} />
