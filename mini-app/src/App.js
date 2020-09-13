@@ -8,6 +8,7 @@ import Home from './panels/Home';
 import Persik from './panels/Persik';
 import CreateHelpHome from "./panels/CreateHelpHome";
 import DonationTypePage from "./panels/DonationTypePage";
+import RegularDonation from "./panels/RegularDonation";
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('createhelphome');
@@ -39,11 +40,12 @@ const App = () => {
 		<View activePanel={activePanel} popout={popout}>
 			<CreateHelpHome id='createhelphome' go={go} />
 			<DonationTypePage id='donationtype' go={go} />
+			<RegularDonation id='regulardonation' go={go} />
 			<Home id='home' fetchedUser={fetchedUser} go={go} />
 			<Persik id='persik' go={go} />
 		</View>
 	);
-}
+};
 
 export default App;
 
