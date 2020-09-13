@@ -32,24 +32,14 @@ class DonationPostRead extends React.Component {
                     backgroundSize: "cover",
                     backgroundPosition: "center top"
                 }}/>
-                <Div>
-                    <div className={'Snippet'}>
-                        <Group header={
-                            <Header subtitle="Максим Баркалов">
-                                Другие сервисы VK
-                            </Header>
-                        }>
-                            <Separator/>
-                            <Div className={'Sum'}>
-                                <InfoRow header="Собрано в сентябре 8500₽">
-                                    <Progress value={40}/>
-                                </InfoRow>
-                                <Button mode="outline">Помочь</Button>
-                            </Div>
-                        </Group>
-
-                    </div>
-                </Div>
+                <div>
+                    <Header subtitle="Максик Зайка">
+                       Добряши помогают котикам
+                    </Header>
+                    <Div>
+                    <p className={'Timeleft'}>Осталось 30 дней</p>
+                    </Div>
+                </div>
             </Panel>
         );
     }

@@ -1,29 +1,41 @@
 .Header__content {
-    padding-top: 8px !important;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height, or 117% */
+    letter-spacing: 0.326451px;
+
+    /* Light Text / Primary */
+    color: #000000;
+    padding-bottom: 4px !important;
 }
 .Header__subtitle {
-    align-self: baseline;
-    display: flex;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    letter-spacing: -0.154px;
+
+    /* Light Text / Subhead */
+    color: #6D7885;
+
+    margin-top: 4px;
+
 }
-.Subhead {
+
+.Timeleft{
     font-style: normal;
     font-weight: normal;
     font-size: 13px;
     line-height: 16px;
     /* identical to box height, or 123% */
     letter-spacing: -0.078px;
-    align-self: baseline;
+
+    /* Light Text / Secondary */
+    color: #818C99;
     display: flex;
-    color: #000000;
-    margin-top: 8px;
-    margin-bottom: 8px;
-}
-.Sum {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.InfoRow {
-    width: 73.3%;
-    padding-right: 12px;
+    margin-top: 0 !important;
+
 }
