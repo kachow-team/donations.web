@@ -9,11 +9,13 @@ import Persik from './panels/Persik';
 import CreateHelpHome from "./panels/CreateHelpHome";
 import DonationTypePage from "./panels/DonationTypePage";
 import RegularDonation from "./panels/RegularDonation";
+import DonationSnippet from "./panels/DonationSnippet";
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('createhelphome');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+	const [donation, setDonation] = useState({});
 
 	useEffect(() => {
 		setPopout(null);
@@ -40,7 +42,8 @@ const App = () => {
 		<View activePanel={activePanel} popout={popout}>
 			<CreateHelpHome id='createhelphome' go={go} />
 			<DonationTypePage id='donationtype' go={go} />
-			<RegularDonation id='regulardonation' go={go} />
+			<RegularDonation id='regulardonation' go={go} setDonation={setDonation}/>
+            <DonationSnippet id='donationsnippet' go={go} donation={donation} setDonation={setDonation}/>
 			<Home id='home' fetchedUser={fetchedUser} go={go} />
 			<Persik id='persik' go={go} />
 		</View>

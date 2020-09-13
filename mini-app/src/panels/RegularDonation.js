@@ -25,27 +25,11 @@ import uploadPlaceHolder from '../img/uploadPlaceholder.svg';
 const osName = platform();
 
 class RegularDonation extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            email: '',
-            purpose: ''
-        };
-
-        this.addressItems = [
-            { label: 'Почтовый индекс', name: 'zip' },
-            { label: 'Страна', name: 'country' },
-            { label: 'Город', name: 'city' }
-        ];
-
-        this.onChange = this.onChange.bind(this);
-    }
-
-    onChange(e) {
-        const { name, value } = e.currentTarget;
-        this.setState({ [name]: value });
-    }
+    state = {
+        file: '',
+        imagePreviewUrl: ''
+    };
 
     fileRef = React.createRef();
 
@@ -53,9 +37,24 @@ class RegularDonation extends React.Component {
         this.fileRef.current.click()
     }
 
-    render() {
-        const { email, purpose } = this.state;
+    onChangeImage (e){
+        e.preventDefault();
 
+        let reader = new FileReader();
+        let file = e.target.files[0];
+
+        reader.onloadend = () => {
+            this.setState({
+                file: file,
+                imagePreviewUrl: reader.result
+            });
+            this.props.setDonation({imagePreviewUrl: reader.result})
+        };
+
+        reader.readAsDataURL(file)
+    }
+
+    render() {
         return (
                 <Panel id="regulardonation">
                     <PanelHeader
@@ -67,12 +66,15 @@ class RegularDonation extends React.Component {
                     </PanelHeader>
                     <FormLayout>
                         <div onClick={() => this.triggerClick()} style={{
-                            backgroundImage: `url(${uploadPlaceHolder})`,
+                            backgroundImage: `url(${this.state.imagePreviewUrl === '' ? uploadPlaceHolder : this.state.imagePreviewUrl})`,
                             width:"375px",
-                            height:"153px"
+                            height:"153px",
+                            borderRadius:"10px",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center top"
                         }} />
 
-                        <input id='selectImage' hidden type="file" ref={this.fileRef} style={{padding:0}} />
+                        <input id='selectImage' hidden type="file" ref={this.fileRef} style={{padding:0}} onChange={(e) => this.onChangeImage(e)} />
 
                         <Input top="Название сбора" placeholder={"Название сбора"} />
                         <Input top="Сумма в месяц, ₽" placeholder={"Сколько нужно в месяц?"} type={'number'} />
@@ -89,7 +91,7 @@ class RegularDonation extends React.Component {
                             <option value="molina">Фонд ремонта Молнии МакКвина</option>
                         </Select>
 
-                        <Button size="xl" onClick={this.props.go} data-to="home">Далее</Button>
+                        <Button size="xl" onClick={this.props.go} data-to="donationsnippet">Далее</Button>
                     </FormLayout>
                 </Panel>
         );
