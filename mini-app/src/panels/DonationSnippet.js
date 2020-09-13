@@ -30,7 +30,8 @@ class DonationSnippet extends React.Component {
                 >
                     Новости
                 </PanelHeader>
-                <Div>
+                <Div style={{marginTop:'8px'}}>
+                <div className={'Snippet'}>
                     <div style={{
                         backgroundImage: `url(${this.props.donation.imagePreviewUrl === '' ? uploadPlaceHolder : this.props.donation.imagePreviewUrl})`,
                         //width:"375px",
@@ -55,6 +56,7 @@ class DonationSnippet extends React.Component {
                         </Div>
                     </Group>
 
+                </div>
                 </Div>
             </Panel>
         );
