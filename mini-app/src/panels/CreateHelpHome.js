@@ -16,7 +16,7 @@ const CreateHelpHome = ({ id, go }) => (
                 Начните доброе дело.</p>
             </Div>
             <Div>
-                <Button size="l" level="2" onClick={go} data-to="persik">
+                <Button size="l" level="2" onClick={go} data-to="donationtype">
                     Создать сбор
                 </Button>
             </Div>

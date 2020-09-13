@@ -7,6 +7,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Home from './panels/Home';
 import Persik from './panels/Persik';
 import CreateHelpHome from "./panels/CreateHelpHome";
+import DonationTypePage from "./panels/DonationTypePage";
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('createhelphome');
@@ -37,6 +38,7 @@ const App = () => {
 	return (
 		<View activePanel={activePanel} popout={popout}>
 			<CreateHelpHome id='createhelphome' go={go} />
+			<DonationTypePage id='donationtype' go={go} />
 			<Home id='home' fetchedUser={fetchedUser} go={go} />
 			<Persik id='persik' go={go} />
 		</View>
