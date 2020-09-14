@@ -20,7 +20,12 @@ import Progress from "@vkontakte/vkui/dist/components/Progress/Progress";
 const osName = platform();
 
 class DonationSnippet extends React.Component {
+
     render() {
+        let authname = !!this.props.user && this.props.donationAuthor === 'user' ? `${this.props.user.first_name} ${this.props.user.last_name}` : 'Андрей Иванов';
+
+        authname = this.props.donationAuthor === 'user' ? authname : 'Фонд ремонта Молнии МакКвина';
+
         return (
             <Panel id="donationsnippet">
                 <PanelHeader
@@ -43,8 +48,10 @@ class DonationSnippet extends React.Component {
                     }}/>
 
                     <Group header={
-                        <Header subtitle="Максим Баркалов">
-                            Другие сервисы VK
+                        <Header subtitle=
+                                    {authname}
+                        >
+                           {this.props.donationName}
                         </Header>
                     }>
                         <Separator/>

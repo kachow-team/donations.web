@@ -23,6 +23,18 @@ const osName = platform();
 
 class DonationPostRead extends React.Component {
     render() {
+
+        let authname = !!this.props.user && this.props.donationAuthor === 'user' ? `${this.props.user.first_name} ${this.props.user.last_name}` : 'Андрей Иванов';
+        authname = this.props.donationAuthor === 'user' ? authname : 'Фонд ремонта Молнии МакКвина';
+
+
+        const arr = this.props.donationDescription.split(/\n/);
+        const resultArr = [];
+        arr.forEach((item, i) => {
+            if(i%2===0) resultArr.push(<br />);
+            resultArr.push(item);
+        });
+
         return (
             <Panel id="donationpostread">
                 <div style={{
@@ -35,11 +47,11 @@ class DonationPostRead extends React.Component {
                     backgroundPosition: "center top"
                 }}/>
                 <div>
-                    <Header subtitle="Автор Андрей Иванов">
-                       Добряши помогают котикам
+                    <Header subtitle={`Автор ${authname}`}>
+                        {this.props.donationName}
                     </Header>
                     <Div>
-                    <p className={'Timeleft'}>Помощь нужна каждый месяц</p>
+                    <p className={'Timeleft'}>{this.props.donationType !== 'regular' && !!this.props.donationEndDate && this.props.endType ==='date' ? 'Помощь нужна каждый месяц' : `Сбор закончится ${this.props.donationEndDate}`}</p>
                     </Div>
                 </div>
                 <Div>
@@ -68,16 +80,7 @@ class DonationPostRead extends React.Component {
                     <Separator/>
                     <div className={'textContent'}>
                         <p>
-Привет-привет, добряш!<br />
-Я создал это событие, чтобы показать какие у меня прекрасные добряши и буду счастлив, если получится вдохновить кого-нибудь хотя бы на маленький перевод в пользу фонда Юна.
-<br />
-◾ Если получится собрать 1 000 рублей, то это будет 5 обработанных животных от блох и клещей.
-<br />
-◾ Собранные 5 000 рублей превратятся в 25 кг корма для подопечных фонда.
-<br />
-◾ А 10 000 рублей позволят провести курс занятий с кинологом по социализации сложной собаки. Чтобы она легче нашла свой дом.
-<br />
-В благотворительности не бывает маленьких сумм, поэтому если вы хотите помочь, то переведите любую сумму, будь-то 10 рублей или 1000 💚
+                            {resultArr}
                   </p>  </div>
                 </Div>
                 <img src={comment} />

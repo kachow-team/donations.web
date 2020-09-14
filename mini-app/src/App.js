@@ -84,8 +84,25 @@ const App = () => {
 							endType={endType}
 							setendType={setendType}
 			/>
-            <DonationSnippet id='donationsnippet' go={go} donation={donation} setDonation={setDonation}/>
-            <DonationPostRead id='donationpostread' go={go} donation={donation} setDonation={setDonation} />
+            <DonationSnippet id='donationsnippet' go={go} donation={donation} setDonation={setDonation}  user={fetchedUser}
+							 donationName={donationName}
+							 donationSum={donationSum}
+							 donationDescription={donationDescription}
+							 donationAuthor={donationAuthor}
+							 donationEndDate={donationEndDate}
+							 donationTarget={donationTarget}
+							 endType={endType}
+			/>
+            <DonationPostRead id='donationpostread' go={go} donation={donation} setDonation={setDonation}  user={fetchedUser}
+							  donationName={donationName}
+							  donationSum={donationSum}
+							  donationDescription={donationDescription}
+							  donationAuthor={donationAuthor}
+							  donationEndDate={donationEndDate}
+							  donationTarget={donationTarget}
+							  endType={endType}
+							  donationType={donationType}
+			/>
 			<Home id='home' fetchedUser={fetchedUser} go={go} />
 			<Persik id='persik' go={go} />
 		</View>

@@ -1,6 +1,10 @@
 .Header__content {
     padding-top: 8px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
+
 .Header__subtitle {
     align-self: baseline;
     display: flex;
