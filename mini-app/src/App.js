@@ -11,13 +11,16 @@ import DonationTypePage from "./panels/DonationTypePage";
 import RegularDonation from "./panels/RegularDonation";
 import DonationSnippet from "./panels/DonationSnippet";
 import DonationPostRead from "./panels/DonationPostRead";
+import TargetDonation from "./panels/TargetDonation";
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('createhelphome');
 	const [fetchedUser, setUser] = useState(null);
 	//const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	const [popout, setPopout] = useState(null);
+
 	const [donation, setDonation] = useState({});
+	const [donationType, setDonationType] = useState('regular');
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
@@ -39,11 +42,16 @@ const App = () => {
 		setActivePanel(e.currentTarget.dataset.to);
 	};
 
+	const goDirect = e => {
+		setActivePanel(e);
+	};
+
 	return (
 		<View activePanel={activePanel} popout={popout}>
 			<CreateHelpHome id='createhelphome' go={go} />
-			<DonationTypePage id='donationtype' go={go} />
-			<RegularDonation id='regulardonation' go={go} setDonation={setDonation} user={fetchedUser} />
+			<DonationTypePage id='donationtype' go={go} goDirect={goDirect} setDonationType={setDonationType} />
+			<RegularDonation id='regulardonation' go={go} setDonation={setDonation} user={fetchedUser} donationType={donationType}/>
+			<TargetDonation id='targetdonation' go={go} />
             <DonationSnippet id='donationsnippet' go={go} donation={donation} setDonation={setDonation}/>
             <DonationPostRead id='donationpostread' go={go} donation={donation} setDonation={setDonation} />
 			<Home id='home' fetchedUser={fetchedUser} go={go} />

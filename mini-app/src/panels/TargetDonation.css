@@ -1,0 +1,5 @@
+.addDonation .FormLayout__row:nth-last-of-type(1){
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

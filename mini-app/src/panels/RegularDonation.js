@@ -56,9 +56,9 @@ class RegularDonation extends React.Component {
                             {osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
                         </PanelHeaderButton>}
                     >
-                        Регулярный сбор
+                        {this.props.donationType === 'regular' ? 'Регулярный сбор' : 'Целевой сбор'}
                     </PanelHeader>
-                    <FormLayout>
+                    <FormLayout className={'FormMain'}>
                         <Div>
                         <div onClick={() => this.triggerClick()} style={{
                             backgroundImage: `url(${this.state.imagePreviewUrl === '' ? uploadPlaceHolder : this.state.imagePreviewUrl})`,
@@ -73,7 +73,7 @@ class RegularDonation extends React.Component {
                         <input id='selectImage' hidden type="file" ref={this.fileRef} style={{padding:0}} onChange={(e) => this.onChangeImage(e)} />
 
                         <Input top="Название сбора" placeholder={"Название сбора"} />
-                        <Input top="Сумма в месяц, ₽" placeholder={"Сколько нужно в месяц?"} type={'number'} />
+                        <Input top={this.props.donationType === 'regular' ? "Сумма в месяц, ₽" : "Сумма, ₽"} placeholder={"Сколько нужно в месяц?"} type={'number'} />
                         <Input top="Цель" placeholder={"Например, поддержка приюта"} />
                         <Textarea top="Описание" placeholder={"На что пойдут деньги и как они кому-то помогут?"} />
 
@@ -82,12 +82,20 @@ class RegularDonation extends React.Component {
                             <option value="card">MasterCard *0239</option>
                         </Select>
 
+                        {this.props.donationType === 'regular' ? (
                         <Select top="Автор" placeholder="Автор" >
                             <option value="user">{!!this.props.user ? `${this.props.user.first_name} ${this.props.user.last_name}`: 'Андрей Иванов'}</option>
                             <option value="molina">Фонд ремонта Молнии МакКвина</option>
                         </Select>
+                            ) : ''}
+                        {this.props.donationType === 'regular' ? (
+                                <Button size="xl" onClick={this.props.go} data-to="donationsnippet">Создать сбор</Button>
+                            ) :
+                            (
+                                <Button size="xl" onClick={this.props.go} data-to="targetdonation">Далее</Button>
+                            )
+                        }
 
-                        <Button size="xl" onClick={this.props.go} data-to="donationsnippet">Далее</Button>
                     </FormLayout>
                 </Panel>
         );
