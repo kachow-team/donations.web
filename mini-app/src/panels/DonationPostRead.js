@@ -17,6 +17,8 @@ import Separator from "@vkontakte/vkui/dist/components/Separator/Separator";
 import InfoRow from "@vkontakte/vkui/dist/components/InfoRow/InfoRow";
 import Progress from "@vkontakte/vkui/dist/components/Progress/Progress";
 
+import comment from '../img/comment.svg';
+
 const osName = platform();
 
 class DonationPostRead extends React.Component {
@@ -78,6 +80,15 @@ class DonationPostRead extends React.Component {
 В благотворительности не бывает маленьких сумм, поэтому если вы хотите помочь, то переведите любую сумму, будь-то 10 рублей или 1000 💚
                   </p>  </div>
                 </Div>
+                <img src={comment} />
+                <Separator/>
+                    <Div className={'Sum lastProgressInPost'}>
+                        <InfoRow className={'snippetInfoRow'} header="Собрано в сентябре 8500₽">
+                            <Progress value={40}/>
+                        </InfoRow>
+                        <Button onClick={this.props.go} data-to={'donationpostread'} mode="commerce">Помочь</Button>
+                    </Div>
+
             </Panel>
         );
     }

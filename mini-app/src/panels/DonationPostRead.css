@@ -75,3 +75,11 @@
     color: #000000;
     text-align: left;
 }
+
+.lastProgressInPost .Progress__in {
+    background: #4bb34b;
+}
+
+.lastProgressInPost {
+    margin-bottom: 34px;
+}
