@@ -44,7 +44,8 @@ class DonationSnippet extends React.Component {
                         borderTopLeftRadius: "10px",
                         borderTopRightRadius: "10px",
                         backgroundSize: "cover",
-                        backgroundPosition: "center top"
+                        backgroundPosition: "center top",
+                        backgroundColor:'#f2f3f5'
                     }}/>
 
                     <Group header={

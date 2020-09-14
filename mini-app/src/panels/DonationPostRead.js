@@ -44,7 +44,8 @@ class DonationPostRead extends React.Component {
                     borderTopLeftRadius: "10px",
                     borderTopRightRadius: "10px",
                     backgroundSize: "cover",
-                    backgroundPosition: "center top"
+                    backgroundPosition: "center top",
+                    backgroundColor:'#f2f3f5'
                 }}/>
                 <div>
                     <Header subtitle={`Автор ${authname}`}>
@@ -78,10 +79,12 @@ class DonationPostRead extends React.Component {
                        </div>
                     </InfoRow>
                     <Separator/>
+                    {this.props.donationDescription !== ''  ? (
                     <div className={'textContent'}>
                         <p>
                             {resultArr}
                   </p>  </div>
+                        ) :''}
                 </Div>
                 <img src={comment} />
                 <Separator/>
