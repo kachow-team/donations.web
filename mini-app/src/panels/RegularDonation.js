@@ -89,10 +89,19 @@ class RegularDonation extends React.Component {
                         </Select>
                             ) : ''}
                         {this.props.donationType === 'regular' ? (
-                                <Button size="xl" onClick={this.props.go} data-to="donationsnippet">Создать сбор</Button>
+                                <Button disabled={
+                                    (this.props.donationName==='' ||
+                                    this.props.donationSum==='' ||
+                                    this.props.donationAuthor==='')
+                                }
+                                        size="xl" onClick={this.props.go} data-to="donationsnippet">Создать сбор</Button>
                             ) :
                             (
-                                <Button size="xl" onClick={this.props.go} data-to="targetdonation">Далее</Button>
+                                <Button disabled={
+                                    (this.props.donationName==='' ||
+                                    this.props.donationSum==='')
+                                }
+                                    size="xl" onClick={this.props.go} data-to="targetdonation">Далее</Button>
                             )
                         }
 

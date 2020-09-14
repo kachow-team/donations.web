@@ -51,7 +51,7 @@ class DonationPostRead extends React.Component {
                         {this.props.donationName}
                     </Header>
                     <Div>
-                    <p className={'Timeleft'}>{this.props.donationType !== 'regular' && !!this.props.donationEndDate && this.props.endType ==='date' ? 'Помощь нужна каждый месяц' : `Сбор закончится ${this.props.donationEndDate}`}</p>
+                    <p className={'Timeleft'}>{this.props.donationType !== 'regular' && !!this.props.donationEndDate && this.props.endType ==='date' ? `Сбор закончится ${this.props.donationEndDate}` : 'Помощь нужна каждый месяц'}</p>
                     </Div>
                 </div>
                 <Div>

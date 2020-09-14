@@ -47,7 +47,11 @@ class TargetDonation extends React.Component {
 
                     {this.props.endType === 'date' ? <Input top="Дата" placeholder={"3 сентября"} type={'date'} value={this.props.donationEndDate} onChange={e => this.props.setdonationEndDate(e.currentTarget.value)}/> : ''}
 
-                    <Button size="xl" onClick={this.props.go} data-to="donationsnippet" style={{marginBottom:'34px'}}>Далее</Button>
+                    <Button  disabled={
+                        (this.props.donationAuthor==='' ||
+                            (this.props.endType==='date' && this.props.donationEndDate===''))
+                    }
+                             size="xl" onClick={this.props.go} data-to="donationsnippet" style={{marginBottom:'34px'}}>Далее</Button>
                 </FormLayout>
                 </div>
             </Panel>
