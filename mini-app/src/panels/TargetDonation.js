@@ -22,10 +22,6 @@ const osName = platform();
 
 class TargetDonation extends React.Component {
 
-    state = {
-    endType : 'sum'
-    };
-
     render() {
         return (
             <Panel id="targetdonation">
@@ -39,16 +35,17 @@ class TargetDonation extends React.Component {
                 <div>
                 <FormLayout className={'addDonation'}>
 
-                    <Select top="Автор" placeholder="Автор" >
+                    <Select top="Автор" placeholder="Автор" value={this.props.donationAuthor} onChange={e => this.props.setdonationAuthor(e.currentTarget.value)} >
                         <option value="user">{!!this.props.user ? `${this.props.user.first_name} ${this.props.user.last_name}`: 'Андрей Иванов'}</option>
                         <option value="molina">Фонд ремонта Молнии МакКвина</option>
                     </Select>
                     <FormLayoutGroup top="Сбор завершается">
-                        <Radio name="type" onChange={()=>{this.setState({endType:'sum'})}}>Когда соберем сумму</Radio>
-                        <Radio name="type" onChange={()=>{this.setState({endType:'date'})}}>В определенную дату</Radio>
+                        {/**/}
+                        <Radio name="type" checked={this.props.endType === 'sum'} onChange={()=>{this.props.setendType('sum')}} >Когда соберем сумму</Radio>
+                        <Radio name="type" checked={this.props.endType === 'date'} onChange={()=>{this.props.setendType('date')}}>В определенную дату</Radio>
                     </FormLayoutGroup>
 
-                    {this.state.endType === 'date' ? <Input top="Дата" placeholder={"3 сентября"} type={'date'} /> : ''}
+                    {this.props.endType === 'date' ? <Input top="Дата" placeholder={"3 сентября"} type={'date'} value={this.props.donationEndDate} onChange={e => this.props.setdonationEndDate(e.currentTarget.value)}/> : ''}
 
                     <Button size="xl" onClick={this.props.go} data-to="donationsnippet" style={{marginBottom:'34px'}}>Далее</Button>
                 </FormLayout>

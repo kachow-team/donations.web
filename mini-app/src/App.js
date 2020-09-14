@@ -22,6 +22,15 @@ const App = () => {
 	const [donation, setDonation] = useState({});
 	const [donationType, setDonationType] = useState('regular');
 
+	/*Данные о донате*/
+	const [donationName, setdonationName] = useState('');
+	const [donationSum, setdonationSum] = useState('');
+	const [donationDescription, setdonationDescription] = useState('');
+	const [donationAuthor, setdonationAuthor] = useState('');
+	const [donationEndDate, setdonationEndDate] = useState('');
+	const [donationTarget, setdonationTarget] = useState('');
+	const [endType, setendType] = useState('sum');
+
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
 			if (type === 'VKWebAppUpdateConfig') {
@@ -50,8 +59,31 @@ const App = () => {
 		<View activePanel={activePanel} popout={popout}>
 			<CreateHelpHome id='createhelphome' go={go} />
 			<DonationTypePage id='donationtype' go={go} goDirect={goDirect} setDonationType={setDonationType} />
-			<RegularDonation id='regulardonation' go={go} setDonation={setDonation} user={fetchedUser} donationType={donationType}/>
-			<TargetDonation id='targetdonation' go={go} />
+			<RegularDonation id='regulardonation' go={go} setDonation={setDonation} user={fetchedUser} donationType={donationType}
+							 setdonationName={setdonationName}
+							 setdonationSum={setdonationSum}
+							 setdonationDescription={setdonationDescription}
+							 setdonationAuthor={setdonationAuthor}
+							 setdonationTarget={setdonationTarget}
+
+							 donationName={donationName}
+							 donationSum={donationSum}
+							 donationDescription={donationDescription}
+							 donationAuthor={donationAuthor}
+							 donationEndDate={donationEndDate}
+							 donationTarget={donationTarget}
+
+			/>
+			<TargetDonation id='targetdonation' go={go}
+							donationEndDate={donationEndDate}
+							setdonationEndDate={setdonationEndDate}
+
+							donationAuthor={donationAuthor}
+							setdonationAuthor={setdonationAuthor}
+
+							endType={endType}
+							setendType={setendType}
+			/>
             <DonationSnippet id='donationsnippet' go={go} donation={donation} setDonation={setDonation}/>
             <DonationPostRead id='donationpostread' go={go} donation={donation} setDonation={setDonation} />
 			<Home id='home' fetchedUser={fetchedUser} go={go} />

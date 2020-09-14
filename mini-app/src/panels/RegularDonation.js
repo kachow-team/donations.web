@@ -72,10 +72,10 @@ class RegularDonation extends React.Component {
 
                         <input id='selectImage' hidden type="file" ref={this.fileRef} style={{padding:0}} onChange={(e) => this.onChangeImage(e)} />
 
-                        <Input top="Название сбора" placeholder={"Название сбора"} />
-                        <Input top={this.props.donationType === 'regular' ? "Сумма в месяц, ₽" : "Сумма, ₽"} placeholder={"Сколько нужно в месяц?"} type={'number'} />
-                        <Input top="Цель" placeholder={"Например, поддержка приюта"} />
-                        <Textarea top="Описание" placeholder={"На что пойдут деньги и как они кому-то помогут?"} />
+                        <Input top="Название сбора" placeholder={"Название сбора"} value={this.props.donationName} onChange={e => this.props.setdonationName(e.currentTarget.value)}  />
+                        <Input top={this.props.donationType === 'regular' ? "Сумма в месяц, ₽" : "Сумма, ₽"} placeholder={"Сколько нужно в месяц?"} type={'number'} value={this.props.donationSum} onChange={e => this.props.setdonationSum(e.currentTarget.value)}/>
+                        <Input top="Цель" placeholder={"Например, поддержка приюта"} value={this.props.donationTarget} onChange={e => this.props.setdonationTarget(e.currentTarget.value)}/>
+                        <Textarea top="Описание" placeholder={"На что пойдут деньги и как они кому-то помогут?"} value={this.props.donationDescription} onChange={e => this.props.setdonationDescription(e.currentTarget.value)} />
 
                         <Select top="Куда получать деньги" placeholder="Куда получать деньги" disabled={'disabled'} value={'vk'}>
                             <option value="vk">VK Pay 1234</option>
@@ -83,7 +83,7 @@ class RegularDonation extends React.Component {
                         </Select>
 
                         {this.props.donationType === 'regular' ? (
-                        <Select top="Автор" placeholder="Автор" >
+                        <Select top="Автор" placeholder="Автор" value={this.props.donationAuthor} onChange={e => this.props.setdonationAuthor(e.currentTarget.value)}>
                             <option value="user">{!!this.props.user ? `${this.props.user.first_name} ${this.props.user.last_name}`: 'Андрей Иванов'}</option>
                             <option value="molina">Фонд ремонта Молнии МакКвина</option>
                         </Select>
