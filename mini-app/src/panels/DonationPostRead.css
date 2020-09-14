@@ -39,3 +39,39 @@
     margin-top: 0 !important;
 
 }
+
+.PostRead .Progress__in {
+    height: 24px;
+    background: #4bb34b;
+    border-radius: 6px;
+}
+
+.Container .Progress {
+    border-radius: 6px;
+}
+
+.numberOnProgress {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    text-align: right;
+    letter-spacing: -0.154px;
+
+    /* White / White */
+    color: #FFFFFF;
+}
+
+.textContent {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    /* or 133% */
+    letter-spacing: -0.24px;
+
+    /* Light Text / Primary */
+    color: #000000;
+    text-align: left;
+}
