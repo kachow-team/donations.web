@@ -14,6 +14,7 @@ import Icon24Back from "@vkontakte/icons/dist/24/back";
 import './RegularDonation.css'
 
 import uploadPlaceHolder from '../img/uploadPlaceholder.svg';
+import Div from "@vkontakte/vkui/dist/components/Div/Div";
 
 const osName = platform();
 
@@ -58,6 +59,7 @@ class RegularDonation extends React.Component {
                         Регулярный сбор
                     </PanelHeader>
                     <FormLayout>
+                        <Div>
                         <div onClick={() => this.triggerClick()} style={{
                             backgroundImage: `url(${this.state.imagePreviewUrl === '' ? uploadPlaceHolder : this.state.imagePreviewUrl})`,
                             //width:"375px",
@@ -66,6 +68,7 @@ class RegularDonation extends React.Component {
                             backgroundSize: "cover",
                             backgroundPosition: "center top"
                         }} />
+                        </Div>
 
                         <input id='selectImage' hidden type="file" ref={this.fileRef} style={{padding:0}} onChange={(e) => this.onChangeImage(e)} />
 
@@ -80,7 +83,7 @@ class RegularDonation extends React.Component {
                         </Select>
 
                         <Select top="Автор" placeholder="Автор" >
-                            <option value="maksimbark">Максим Баркалов</option>
+                            <option value="user">{!!this.props.user ? `${this.props.user.first_name} ${this.props.user.last_name}`: 'Андрей Иванов'}</option>
                             <option value="molina">Фонд ремонта Молнии МакКвина</option>
                         </Select>
 
