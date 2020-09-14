@@ -27,9 +27,9 @@
     justify-content: space-between;
     align-items: flex-end;
 }
-.InfoRow .snippetInfoRow{
-    width: 73.3%;
-    padding-right: 12px;
+.InfoRow.snippetInfoRow{
+    width: 73.3% !important;
+    padding-right: 12px !important;
 }
 .Snippet{
     border: 0.5px solid rgba(0, 0, 0, 0.08);
